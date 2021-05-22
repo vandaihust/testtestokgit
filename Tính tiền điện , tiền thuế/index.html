@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập tuần 11 _ SV Web</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/calendar.css">
+</head>
+<body>
+    <div><br><br></div>
+    <div class="container">
+        <div class="row">
+            <!-- tính tien điên -->
+            <div class="col-md-4">
+                <form class="tiendien">
+                    <div class="form-group">
+                    <label for="sodien">Nhập số điện</label>
+                    <input type="text" class="form-control sodien" id="sodien" placeholder="Số điện">
+                    </div>
+                    <div class="form-group " id="ketqua" style="display: none;" >
+                        <label for="sodien">Số tiền thanh toán: </label>
+                        <span id="tongtien" style="margin-left: 5px; color: red">0 </span>
+                         <span style="margin-left: 5px"> VNĐ</span>
+                    </div>
+                    <div class="form-group sodienkhonghople" style="display: none;">
+                        <label for="sodien">Số điện không hợp lệ</label>
+                        
+                    </div>
+                    <button type="button" class="btn btn-success" id="tinhtiendien">Tính tiền</button>
+                    <button type="button" class="btn btn-info" id="lammoitiendien">Làm mới</button>                    
+                </form>
+             </div>
+             <!-- end tính tiền điện -->
+             <!-- tinh tiền thuế -->
+             <div class="col-md-4">
+                <form class="tienthue">
+                    <div class="form-group">
+                    <label for="sodien">Nhập tiền lương hằng tháng</label>  
+                        <div class="row">
+                            <div class="col-md-11">
+                               <input type="text" class="form-control" id="tienluong" placeholder="Tiền lương"> 
+                            </div>
+                            <div class="col-md-1">
+                                <p style=" margin-left: -15px; margin-top: 5px; color: red;">VNĐ</p> 
+                            </div>
+                        </div> <br>          
+                    <div class="form-group " id="ketquathue" style="display: none;" >
+                        <label for="tienthue">Tiền thuế: </label>
+                        <span id="tienthue" style="margin-left: 5px; color: red">0 </span>
+                         <span style="margin-left: 5px"> VNĐ</span>
+                    </div>
+                    <div class="form-group" style="display: none;">
+                        <label for="sodien">Số tien không hợp lệ</label>
+                        
+                    </div>
+                    <button type="button" class="btn btn-success" id="tinhtienthue">Tính thuế</button>
+                    <button type="button" class="btn btn-info" id="lammoitienthue">Làm mới</button>                    
+                </form>
+             </div>
+             <!-- end tính tiền thuế -->
+
+        </div> <!-- end row -->
+    </div> <!-- end container -->
+   
+      <!-- javascript -->   
+      <script src="custom.js" type="text/javascript"  ></script>
+</body>
+</html>

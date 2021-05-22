@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Xử lý ảnh</title>
+    <style>
+      #imageSrc {
+        float: left;
+      }
+    </style>
+    <script src="scripts/imageprocessing.js"></script>
+  </head>
+  <body>
+    <p id="loadOpenCV">Đang tải...</p>
+    <div>
+      <div>
+        <div>
+          Chọn ảnh <input type="file" id="fileInput" name="file" />
+        </div>
+        <img id="imageSrc" alt="Hình ảnh" width="400" />
+        <div><canvas id="canvasOutput" width="400"></canvas></div>
+      </div>
+    </div>
+    <div>
+      <p>Chọn chức năng chuyển sang ảnh:</p>
+      <div id="radioGroupImageProcessing"></div>
+    </div>
+    <script type="text/javascript">
+      let imgElement = document.getElementById("imageSrc");
+      let inputElement = document.getElementById("fileInput");
+      inputElement.addEventListener(
+        "change",
+        e => {
+          imgElement.src = URL.createObjectURL(e.target.files[0]);
+        },
+        false
+      );
+
+      setImageTasks();
+
+      imgElement.onload = () => {
+        let taskName = imageTask();
+        let select = "select[name='" + taskName + "Select']";
+        let options = document.querySelector(select);
+        if (options) {
+          imageProcessor[taskName](options.selectedIndex);
+        } else {
+          let id = taskName + "Range";
+          let rangeInput = document.getElementById(id);
+          if (rangeInput) {
+            imageProcessor[taskName](rangeInput.value);
+          } else {
+            imageProcessor[taskName]();
+          }
+        }
+      };
+    </script>
+<!--     <script async src="https://docs.opencv.org/3.4.5/opencv.js" onload="onOpencvJSLoaded();" type="text/javascript">
+
+    </script> -->
+    <script async src="scripts/opencv.js" onload="onOpencvJSLoaded();" type="text/javascript">
+    </script>
+  </body>
+</html>
